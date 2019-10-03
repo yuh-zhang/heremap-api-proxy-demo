@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hello
+      </h1>
+      <p class="subtitle">
+        This is an address searching website with autocomplete function. Throttling and debouncing are applied when you type in the textbox.
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+                <div class="field">
+                    <div class="control is-loading">
+                      <input id="autocomplete-input" class="input" type="text" placeholder="Normal loading input">
+                    </div>
+                    <div class="dropdown is-active">
+                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div id="dropdown-content" class="dropdown-content">
+                        
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </p>
+    </div>
+  </section>
+  <script src="script.js"></script>
+  </body>
+</html>
