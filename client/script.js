@@ -5,10 +5,11 @@
 
     async function remoteCall(input) {
         document.getElementById('dropdown-content').innerHTML = '';
+        document.getElementById('dropdown-menu').classList.add('is-hidden');
         var response = await fetch(`${process.env.ENDPOINT}?app_id=${process.env.APP_ID}&app_code=${process.env.APP_CODE}&query=${req.params.query}&maxresults=5&country=AUS`)
         var responseJson = await response.json();
         responseJson.suggestions.forEach(item => {
-            document.getElementById('dropdown-content').insertAdjacentHTML('beforeend', `<a href="#" class="dropdown-item">
+            document.getElementById('dropdown-content').insertAdjacentHTML('beforeend', `<a href="#" onClick="setInputValue(this)" class="dropdown-item">
             ${item.label}
           </a>`)
         });
