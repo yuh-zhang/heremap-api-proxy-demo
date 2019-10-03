@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-
+require('dotenv').config();
 const app = express();
 
 app.get('/api/autocomplete/:query', (req,res) => {
@@ -18,6 +18,7 @@ app.get('/api/autocomplete/:query', (req,res) => {
         res.send(JSON.stringify(error),400);
     });
 })
+app.use('/',express.static('client'))
 
 app.listen(3001, ()=>{
     console.log('app is running on 3001...')
