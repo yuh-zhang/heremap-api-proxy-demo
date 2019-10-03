@@ -5,7 +5,7 @@
 
     async function remoteCall(input) {
         document.getElementById('dropdown-content').innerHTML = '';
-        var response = await fetch(`http://autocomplete.geocoder.api.here.com/6.2/suggest.json?app_id=31gDSjonTUSDLYb1yTXA&app_code=yfhY1MLeAHqfVBqQHv7UHQ&query=${input}&maxresults=5&country=AUS`)
+        var response = await fetch(`${process.env.ENDPOINT}?app_id=${process.env.APP_ID}&app_code=${process.env.APP_CODE}&query=${req.params.query}&maxresults=5&country=AUS`)
         var responseJson = await response.json();
         responseJson.suggestions.forEach(item => {
             document.getElementById('dropdown-content').insertAdjacentHTML('beforeend', `<a href="#" class="dropdown-item">

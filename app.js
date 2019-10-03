@@ -18,6 +18,10 @@ app.get('/api/autocomplete/:query', (req,res) => {
         res.send(JSON.stringify(error),400);
     });
 })
+
+app.get('/ping', (req,res)=>{
+    res.send('pong')
+});
 app.use('/',express.static('client'))
 
 app.listen(3001, ()=>{
