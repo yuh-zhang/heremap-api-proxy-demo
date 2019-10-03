@@ -1,13 +1,16 @@
 (function () {
     document.getElementById('autocomplete-input').addEventListener('keyup', (ele) => {
-        debounce(remoteCall,300)(ele.target.value);
+        document.getElementById('autocomplete-control').classList.add('is-loading');
+        debounce(remoteCall, 1000)(ele.target.value);
     })
 
     async function remoteCall(input) {
         document.getElementById('dropdown-content').innerHTML = '';
         document.getElementById('dropdown-menu').classList.add('is-hidden');
         var response = await fetch(`/api/autocomplete/${input}`)
-        var responseJson = await response.json();
+        console.log(response)
+        var responseJson = await response.json()
+        console.log(responseJson)
         responseJson.suggestions.forEach(item => {
             document.getElementById('dropdown-content').insertAdjacentHTML('beforeend', `<a href="#" onClick="setInputValue(this)" class="dropdown-item">
             ${item.label}
