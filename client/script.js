@@ -1,6 +1,6 @@
 (function () {
     document.getElementById('autocomplete-input').addEventListener('keyup', (ele) => {
-        document.getElementById('autocomplete-control').classList.add('is-loading');
+        document.getElementById('control').classList.add('is-loading');
         debounce(remoteCall, 1000)(ele.target.value);
     })
 
